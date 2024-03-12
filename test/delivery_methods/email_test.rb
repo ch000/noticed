@@ -10,7 +10,7 @@ class EmailTest < ActiveSupport::TestCase
 
   test "sends email" do
     set_config(
-      mailer: "UserMailer",
+      mailer: -> { "UserMailer" },
       method: "new_comment",
       params: -> { {foo: :bar} },
       args: -> { ["hey"] }
